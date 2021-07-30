@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         seek1 = findViewById(R.id.seek1);
         seek2 = findViewById(R.id.seek2);
         tv1 = findViewById(R.id.tv1);
+        tv2 = findViewById(R.id.tv2);
         Button btnStart = findViewById(R.id.btn_start);
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         for(int i = seek1.getProgress(); i < 100; i+=2){
                             seek1.setProgress(seek1.getProgress()+2);
-
+                            tv1.setText(R.string.tv1);
+                            tv1.append(" "+seek1.getProgress()+"%");
                             SystemClock.sleep(100);
                         }
                     }
@@ -41,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         for(int i = seek2.getProgress(); i < 100; i+=1){
                             seek2.setProgress(seek2.getProgress()+2);
+                            tv2.setText(R.string.tv2);
+                            tv2.append(" "+seek2.getProgress()+"%");
                             SystemClock.sleep(100);
                         }
                     }
